@@ -1,25 +1,67 @@
-# Quarto Extension Development with Lua in a Devcontainer
+# Link Collection Extension For Quarto <img src="docs/linkate-logo.svg" align ="right" alt="Hexagon logo for the linkate extension" width ="150"/>
 
-This repository houses a devcontainer that setups a [Quarto extension development environment](https://quarto.org/docs/extensions/lua.html). The container is setup to work with [GitHub Codespaces](https://github.com/features/codespaces) to instantly have a cloud-based developer workflow.
+The `linkate` filter extension automatically collects all URLs in your
+Quarto document and places a copy of them at the end under a "Links" section.
 
-You can try out the Codespace by clicking on the following button:
+## Installation`
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/coatless-devcontainer/quarto-extension-dev?quickstart=1)
+To install the `linkate` filter extension, follow these steps:
 
-**Note:** Codespaces are available to Students and Teachers for free [up to 180 core hours per month](https://docs.github.com/en/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/using-github-codespaces-with-github-classroom#about-github-codespaces) through [GitHub Education](https://education.github.com/). Otherwise, you will have [up to 60 core hours and 15 GB free per month](https://github.com/features/codespaces#pricing).
+1. Open your terminal.
 
-The devcontainer contains:
+2. Execute the following command:
 
-- The latest [pre-release](https://quarto.org/docs/download/prerelease) version of Quarto.
-- [Quarto VS Code Extension](https://marketplace.visualstudio.com/items?itemName=quarto.quarto).
-- [Lua LSP VS Code Extension](https://marketplace.visualstudio.com/items?itemName=sumneko.lua) for Lua code intelligence.
-- [GitHub copilot VS Code Extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot).
-- `R` and `Python`
-- `knitr` and `jupyter`
+```bash
+quarto add coatless-quarto/linkate
+```
 
-## References
+This command will download and install the filter extension under the `_extensions` subdirectory of your Quarto project. If you are using version control, ensure that you include this directory in your repository.
 
-- [Quarto: Lua API Reference](https://quarto.org/docs/extensions/lua-api.html)
-- [Quarto: Lua Development](https://quarto.org/docs/extensions/lua.html)
-- [Pandoc: Lua Filters](https://pandoc.org/lua-filters.html)
-- [Lua: Manual](https://www.lua.org/manual/5.4/)
+## Usage
+
+To use the `linkate` extension, add it to your document's YAML front matter:
+
+```yaml
+---
+title: "My Document"
+filters:
+  - linkate
+---
+```
+
+The extension will automatically process your document and append a "Links" section at the end containing all the URLs found in your document.
+
+## Supported Link Types
+
+The extension collects all types of Markdown links:
+
+| Link Type | Example | Description |
+|-----------|---------|-------------|
+| Autolinks | `<http://example.com>` | Direct URL links wrapped in angle brackets |
+| Inline links | `[text](http://example.com)` | Links with custom text and inline URLs |
+| Reference links | `[text][ref]` with `[ref]: http://example.com` | Links using reference-style definitions |
+
+## Example
+
+Input document:
+
+```markdown
+# My Document
+
+Check out <http://mywebsite.com> and [click here](https://anotherwebsite.org).
+
+Also see [somelink](www.il.gov) and [my link][short-ref].
+
+[short-ref]: https://websitehere.com
+```
+
+Output will automatically include at the end:
+
+```markdown
+# Links
+
+- <http://mywebsite.com>
+- [click here](https://anotherwebsite.org)
+- [somelink](www.il.gov)
+- [my link][short-ref]
+```
