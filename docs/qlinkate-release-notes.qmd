@@ -1,0 +1,15 @@
+---
+title: "Release Notes"
+date: "07-04-2025"
+date-modified: last-modified
+engine: markdown
+format: 
+  html:
+    toc: true
+---
+
+# 0.0.0-dev.1: ???? (??-??-????)
+
+## Features
+
+- `linkate` is a Quarto filter extension that automatically collects all URLs in your document and places a copy of them at the end under a "Links" section.

@@ -1,0 +1,32 @@
+project:
+  type: website
+
+website:
+  title: "linkate"
+  reader-mode: true
+  repo-url: https://github.com/coatless-quarto/linkate/
+  repo-actions: [edit, issue]
+  sidebar:
+    logo: "linkate-logo.svg"
+    logo-alt: "A hexagon logo for the linkate extension."
+    style: "floating"
+    search: true
+    tools:
+      - icon: github
+        href: https://github.com/coatless-quarto/linkate/
+    contents: 
+      - text: "Home"
+        file: index.qmd
+      - section: "Support"
+        contents:
+        - text: "FAQ"
+          href: qlinkate-faq.qmd
+        - text: "Submit an issue"
+          href: https://github.com/coatless-quarto/linkate/issues/new/choose
+      - section: "Extra"
+        contents:
+        - qlinkate-release-notes.qmd
+
+format: 
+  html:
+    toc: true

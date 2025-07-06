@@ -1,0 +1,72 @@
+---
+title: "Home"
+format: 
+  html:
+    toc: false
+---
+
+The `linkate` filter extension automatically collects all URLs in your
+Quarto document and places a copy of them at the end under a "Links" section.
+
+## Installation`
+
+To install the `linkate` filter extension, follow these steps:
+
+1. Open your terminal.
+
+2. Execute the following command:
+
+```bash
+quarto add coatless-quarto/linkate
+```
+
+This command will download and install the filter extension under the `_extensions` subdirectory of your Quarto project. If you are using version control, ensure that you include this directory in your repository.
+
+## Usage
+
+To use the `linkate` extension, add it to your document's YAML front matter:
+
+```yaml
+---
+title: "My Document"
+filters:
+  - linkate
+---
+```
+
+The extension will automatically process your document and append a "Links" section at the end containing all the URLs found in your document.
+
+## Supported Link Types
+
+The extension collects all types of Markdown links:
+
+| Link Type | Example | Description |
+|-----------|---------|-------------|
+| Autolinks | `<http://example.com>` | Direct URL links wrapped in angle brackets |
+| Inline links | `[text](http://example.com)` | Links with custom text and inline URLs |
+| Reference links | `[text][ref]` with `[ref]: http://example.com` | Links using reference-style definitions |
+
+## Example
+
+Input document:
+
+```markdown
+# My Document
+
+Check out <http://mywebsite.com> and [click here](https://anotherwebsite.org).
+
+Also see [somelink](www.il.gov) and [my link][short-ref].
+
+[short-ref]: https://websitehere.com
+```
+
+Output will automatically include at the end:
+
+```markdown
+# Links
+
+- <http://mywebsite.com>
+- [click here](https://anotherwebsite.org)
+- [somelink](www.il.gov)
+- [my link][short-ref]
+```

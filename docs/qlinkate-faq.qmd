@@ -1,0 +1,127 @@
+---
+title: "Frequently Asked Questions"
+date: "07-06-2025"
+date-modified: last-modified
+engine: markdown
+format: 
+  html:
+    toc: true
+---
+
+# General Information
+
+## What is the {linkate} extension for Quarto?
+
+The `{linkate}` extension for Quarto is a filter that automatically collects all URLs in your document and places a copy of them at the end under a "Links" section. It helps readers easily find and reference all links mentioned throughout your document, improving accessibility and providing a convenient link directory.
+
+## What types of links does {linkate} collect?
+
+The `{linkate}` extension collects all types of Markdown links, including:
+
+- **Autolinks**: `<http://example.com>`
+- **Inline links**: `[text](http://example.com)`
+- **Reference-style links**: `[text][ref]` with `[ref]: http://example.com`
+
+All collected links maintain their original formatting and text.
+
+# Installation
+
+## How do I install the {linkate} extension?
+
+See the [home page](index.qmd) for details. 
+
+## Is the {linkate} extension compatible with all Quarto versions?
+
+The `{linkate}` extension requires Quarto v1.7 or later, as it uses Lua filters which were stabilized in that version.
+
+## Do I need to install any additional dependencies?
+
+No additional dependencies are required. The `{linkate}` extension is a pure Lua filter that works with Quarto's built-in Pandoc processing.
+
+# Usage and Customization
+
+## How do I enable the {linkate} extension in my document?
+
+After installing the extension, add it to your document's YAML front matter:
+
+```yaml
+---
+title: "My Document"
+filters:
+  - linkate
+---
+```
+
+The extension will automatically collect all links and add them to the end of your document.
+
+## Can I customize the heading for the Links section?
+
+Currently, the extension uses "Links" as the heading. To customize this, you would need to modify the `linkate.lua` file and change the header text:
+
+```lua
+local links_header = pandoc.Header(1, "Your Custom Heading")
+```
+
+## Can I change the formatting of the collected links?
+
+The collected links are displayed as a bullet list by default. To modify the formatting, you can edit the `linkate.lua` file. For example, to use a numbered list instead:
+
+```lua
+local numbered_list = pandoc.OrderedList(links_list)
+```
+
+## Does {linkate} work with all Quarto output formats?
+
+Yes! Since `{linkate}` operates at the Pandoc AST level before format-specific rendering, it works with all Quarto output formats including HTML, PDF, Word, EPUB, and more.
+
+## Will {linkate} include duplicate links?
+
+No, the extension automatically removes duplicate links. Links are considered duplicates if they have the same text content and target URL.
+
+# Behavior and Features
+
+## Where exactly does the Links section appear?
+
+The Links section is added at the very end of your document, after all other content including appendices and references.
+
+## What happens if my document has no links?
+
+If no links are found in the document, the extension will not add a Links section. Your document remains unchanged.
+
+## Does {linkate} affect the original links in my document?
+
+No, the original links in your document remain completely unchanged. The extension only creates copies of the links for the Links section at the end.
+
+## Can I exclude certain links from being collected?
+
+The current version collects all links automatically. To exclude specific links, you would need to modify the Lua filter to add exclusion logic based on link text, URL patterns, or other criteria.
+
+## Can I use {linkate} with other Quarto extensions?
+
+Yes, `{linkate}` is designed to work alongside other Quarto extensions. If you encounter conflicts, try adjusting the order of filters in your YAML front matter.
+
+# Troubleshooting
+
+## The Links section isn't appearing in my document. What should I do?
+
+First, ensure that:
+
+1. The `{linkate}` extension is properly installed in your `_extensions/linkate/` directory
+2. You've added `filters: [linkate]` to your document's YAML front matter
+3. Your document actually contains links
+4. You're using a compatible Quarto version (v1.7+)
+
+## Links appear multiple times in the Links section
+
+This shouldn't happen as the extension includes duplicate detection. If you're seeing duplicates, they likely have slightly different text or URLs. Check for:
+
+- Trailing spaces in link text
+- Different URL schemes (http vs https)
+- Different URL formatting (with/without www)
+
+
+# Support
+
+## How can I contribute to the {linkate} extension?
+
+For bug reports, feature requests, or contributions, please visit the project's repository or contact the maintainers through the official channels outlined in the documentation.
