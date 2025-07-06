@@ -1,0 +1,7 @@
+name: linkate
+title: "Link Collection"
+author: "James J Balamuta"
+version: "0.0.0-dev.1"
+contributes:
+  filters:
+    - linkate.lua
