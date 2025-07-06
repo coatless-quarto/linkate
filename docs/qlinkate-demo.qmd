@@ -1,0 +1,102 @@
+---
+title: "Linkate Extension Demo"
+format: html
+filters:
+  - linkate
+---
+
+This document demonstrates the `linkate` filter extension, which automatically collects all URLs in your Quarto document and places them at the end under a "Links" section.
+
+## Document YAML
+
+The following YAML front matter is used to enable the linkate extension in this document:
+
+````md
+---
+title: "Linkate Extension Demo"
+format: html
+filters:
+  - linkate
+---
+````
+
+## Sample Content with Links
+
+The following examples demonstrate different types of links that will be automatically collected by the linkate extension.
+
+### Basic Links
+
+:::{.panel-tabset}
+
+### Rendered
+
+Check out the official Quarto website at <https://quarto.org> for comprehensive documentation.
+
+You can also visit the [Quarto GitHub repository](https://github.com/quarto-dev/quarto-cli) to see the source code.
+
+For R users, we recommend browsing [CRAN](https://cran.r-project.org/) for packages.
+
+### Source
+
+````md
+Check out the official Quarto website at <https://quarto.org> for comprehensive documentation.
+
+You can also visit the [Quarto GitHub repository](https://github.com/quarto-dev/quarto-cli) to see the source code.
+
+For R users, we recommend browsing [CRAN](https://cran.r-project.org/) for packages.
+````
+:::
+
+### Reference-Style Links
+
+:::{.panel-tabset}
+
+### Rendered
+
+For statistical computing, check out [R Project][r-project] and [Python][python-site].
+
+You might also be interested in [JS data visualization tools][dataviz].
+
+[r-project]: https://www.r-project.org/
+[python-site]: https://www.python.org/
+[dataviz]: https://observablehq.com/
+
+### Source
+
+````md
+For statistical computing, check out [R Project][r-project] and [Python][python-site].
+
+You might also be interested in [JS data visualization tools][dataviz].
+
+[r-project]: https://www.r-project.org/
+[python-site]: https://www.python.org/
+[dataviz]: https://observablehq.com/
+````
+:::
+
+### Mixed Link Types
+
+:::{.panel-tabset}
+
+### Rendered
+
+This paragraph contains multiple link types: an autolink to <https://example.com>, an inline link to [Stack Overflow](https://stackoverflow.com), and a reference link to [MDN Web Docs][mdn].
+
+We also include a duplicate link to [Quarto](https://quarto.org) to demonstrate deduplication.
+
+[mdn]: https://developer.mozilla.org/
+
+### Source
+
+````md
+This paragraph contains multiple link types: an autolink to <https://example.com>, an inline link to [Stack Overflow](https://stackoverflow.com), and a reference link to [MDN Web Docs][mdn].
+
+We also include a duplicate link to [Quarto](https://quarto.org) to demonstrate deduplication.
+
+[mdn]: https://developer.mozilla.org/
+````
+:::
+
+:::{.callout-note}
+When you render this document, you'll see a "Links" section automatically generated at the bottom containing all the URLs referenced above.
+:::

@@ -3,7 +3,7 @@
 The `linkate` filter extension automatically collects all URLs in your
 Quarto document and places a copy of them at the end under a "Links" section.
 
-## Installation`
+## Installation
 
 To install the `linkate` filter extension, follow these steps:
 
