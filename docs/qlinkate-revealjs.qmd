@@ -1,0 +1,45 @@
+---
+title: "Linkate with RevealJS"
+subtitle: "Demo Quarto Extension Enabled Presentation"
+author: "Linkate Extension Authors"
+date: "2025-10-14"
+format: 
+  revealjs:
+    theme: default
+filters:
+  - linkate
+---
+
+## Introduction
+
+Welcome to this RevealJS presentation demonstrating the `linkate` extension.
+
+## Data Science Resources
+
+Here are some useful resources:
+
+- [R for Data Science](https://r4ds.hadley.nz/)
+- [Python Data Science Handbook](https://jakevdp.github.io/PythonDataScienceHandbook/)
+- Visit [Kaggle](https://www.kaggle.com/) for datasets
+
+## Development Tools
+
+Popular IDEs and editors:
+
+- [VS Code](https://code.visualstudio.com/)
+- [RStudio](https://posit.co/products/open-source/rstudio/)
+- [Jupyter](https://jupyter.org/)
+- [Marimo](https://marimo.io/)
+
+## Statistics and Math
+
+Statistical computing with [R](https://www.r-project.org/) or [Python](https://www.python.org/) and mathematical notation and PDF generation with [LaTeX](https://www.latex-project.org/) or
+[Typst](https://typst.app/).
+
+## Literate Programming
+
+Check out the [Quarto documentation](https://quarto.org/) for more information.
+
+## Conclusion
+
+Thank you! Questions? Feel free to reach out.
