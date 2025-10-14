@@ -8,7 +8,15 @@ format:
     toc: true
 ---
 
-# 0.0.0-dev.1: ???? (??-??-????)
+# 0.0.1-dev.1: ???? (??-??-????)
+
+## Features
+
+- By default, the Links slide for revealjs presentations is set to scrollable to accommodate many links. ([#3](https://github.com/coatless-quarto/linkate/pull/3))
+  - If there are more than 6 links, a hint "Scroll to see more links" is added to the slide.
+  - If there are 6 or fewer links, no hint is added and scrolling is not necessary.
+
+# 0.0.1: "Gotta collect them (links) all" (07-06-2025)
 
 ## Features
 
