@@ -25,21 +25,31 @@ local function add_links_section(doc)
     return doc  -- No links found, return unchanged
   end
   
-  -- Create the Links section
-  local links_header = pandoc.Header(1, "Links")
-  local links_list = {}
+  -- Check if the output format is revealjs
+  local is_revealjs = quarto.doc.is_format("revealjs")
+  -- Determine if scrolling is needed (more than ~6 links under revealjs)
+  local needs_scroll = is_revealjs and #collected_links > 6
+  
+  -- Set header level and classes
+  local header_level = is_revealjs and 2 or 1 -- H2 for revealjs, H1 otherwise
+  local header_classes = needs_scroll and {"scrollable"} or {}
+  local header_attr = pandoc.Attr("", header_classes, {})
   
   -- Convert collected links to list items
+  local links_list = {}
   for _, link in ipairs(collected_links) do
-    local list_item = pandoc.Plain({link})
-    table.insert(links_list, list_item)
+    table.insert(links_list, pandoc.Plain({link}))
   end
   
-  local bullet_list = pandoc.BulletList(links_list)
+  -- Add elements to document
+  table.insert(doc.blocks, pandoc.Header(header_level, "Links", header_attr))
+
+  -- If scrolling is needed, add a hint
+  if needs_scroll then
+    table.insert(doc.blocks, pandoc.Para({pandoc.Emph({pandoc.Str("Scroll to see more links")})}))
+  end
   
-  -- Add the Links section to the document
-  table.insert(doc.blocks, links_header)
-  table.insert(doc.blocks, bullet_list)
+  table.insert(doc.blocks, pandoc.BulletList(links_list))
   
   return doc
 end

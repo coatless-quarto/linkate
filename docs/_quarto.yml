@@ -19,6 +19,8 @@ website:
         file: index.qmd
       - text: "Demo"
         file: qlinkate-demo.qmd
+      - text: "RevealJS"
+        file: qlinkate-revealjs.qmd
       - section: "Support"
         contents:
         - text: "FAQ"
