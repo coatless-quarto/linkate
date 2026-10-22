@@ -32,7 +32,7 @@ See the [home page](index.qmd) for details.
 
 ## Is the {linkate} extension compatible with all Quarto versions?
 
-The `{linkate}` extension requires Quarto v1.7 or later, as it uses Lua filters which were stabilized in that version.
+The `{linkate}` extension requires Quarto v1.10 or later.
 
 ## Do I need to install any additional dependencies?
 
@@ -109,7 +109,7 @@ First, ensure that:
 1. The `{linkate}` extension is properly installed in your `_extensions/linkate/` directory
 2. You've added `filters: [linkate]` to your document's YAML front matter
 3. Your document actually contains links
-4. You're using a compatible Quarto version (v1.7+)
+4. You're using a compatible Quarto version (v1.10+)
 
 ## Links appear multiple times in the Links section
 
