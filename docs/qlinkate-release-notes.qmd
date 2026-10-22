@@ -20,11 +20,6 @@ format:
   - If there are more than 6 links, a hint "Scroll to see more links" is added to the slide.
   - If there are 6 or fewer links, no hint is added and scrolling is not necessary.
 
-## Documentation
-
-- The FAQ now says where the Links section appears. Quarto places the references list, and in HTML output footnotes and `.appendix` sections, after it. Previously, the FAQ said the Links section came after all other content.
-- The FAQ example for renaming the "Links" heading now matches the code in `linkate.lua`.
-
 # 0.0.1: "Gotta collect them (links) all" (07-06-2025)
 
 ## Features
