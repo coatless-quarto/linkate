@@ -56,10 +56,10 @@ The extension will automatically collect all links and add them to the end of yo
 
 ## Can I customize the heading for the Links section?
 
-Currently, the extension uses "Links" as the heading. To customize this, you would need to modify the `linkate.lua` file and change the header text:
+Currently, the extension uses "Links" as the heading. To customize this, you would need to modify the `linkate.lua` file and change the header text in `add_links_section()`:
 
 ```lua
-local links_header = pandoc.Header(1, "Your Custom Heading")
+table.insert(doc.blocks, pandoc.Header(header_level, pandoc.Inlines("Your Custom Heading"), header_attr))
 ```
 
 ## Can I change the formatting of the collected links?
@@ -82,7 +82,7 @@ No, the extension automatically removes duplicate links. Links are considered du
 
 ## Where exactly does the Links section appear?
 
-The Links section is added at the very end of your document, after all other content including appendices and references.
+The Links section is added after the last block of your document. Quarto places some content after it: the references list, and in HTML output, footnotes and `.appendix` sections.
 
 ## What happens if my document has no links?
 
