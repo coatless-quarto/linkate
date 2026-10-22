@@ -1,8 +1,12 @@
+---@type pandoc.Link[]
 local collected_links = {}
+---@type table<string, boolean>
 local seen_links = {}
 
--- Add a link to our collection (avoiding duplicates)
-local function add_link(link_elem)
+-- Collect links during the first pass (avoiding duplicates). Returns nothing,
+-- so the link itself is left unchanged
+---@param link_elem pandoc.Link
+local function collect_links(link_elem)
   local link_key = pandoc.utils.stringify(link_elem.content) .. "|" .. link_elem.target
   
   if not seen_links[link_key] then
@@ -11,15 +15,9 @@ local function add_link(link_elem)
   end
 end
 
--- Collect links during the first pass
-local function collect_links(el)
-  if el.t == "Link" then
-    add_link(el)
-  end
-  return nil  -- Don't modify the element, just collect
-end
-
 -- Add the Links section at the end
+---@param doc pandoc.Pandoc
+---@return pandoc.Pandoc
 local function add_links_section(doc)
   if #collected_links == 0 then
     return doc  -- No links found, return unchanged
@@ -36,13 +34,14 @@ local function add_links_section(doc)
   local header_attr = pandoc.Attr("", header_classes, {})
   
   -- Convert collected links to list items
+  ---@type pandoc.Block[]
   local links_list = {}
   for _, link in ipairs(collected_links) do
     table.insert(links_list, pandoc.Plain({link}))
   end
   
   -- Add elements to document
-  table.insert(doc.blocks, pandoc.Header(header_level, "Links", header_attr))
+  table.insert(doc.blocks, pandoc.Header(header_level, pandoc.Inlines("Links"), header_attr))
 
   -- If scrolling is needed, add a hint
   if needs_scroll then
