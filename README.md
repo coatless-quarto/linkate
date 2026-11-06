@@ -66,6 +66,13 @@ Output will automatically include at the end:
 - [my link][short-ref]
 ```
 
+## Learn more
+
+- [Documentation](https://quarto.thecoatlessprofessor.com/linkate/)
+- [Release notes](https://quarto.thecoatlessprofessor.com/linkate/qlinkate-release-notes.html)
+- [Blog posts](https://blog.thecoatlessprofessor.com/projects/linkate/)
+- Discuss on [Mastodon](https://mastodon.social/@coatless/114805461402427305), [Bluesky](https://bsky.app/profile/coatless.bsky.social/post/3ltbvrfcwws2a) or [X](https://x.com/axiomsofxyz/status/1941783863371694357)
+
 ## License
 
 linkate is licensed under AGPL-3.0-or-later with an exception: what you write and render with linkate stays yours, along with the output, under any terms you like. See [LICENSE](LICENSE) and [LICENSE-EXCEPTION.md](LICENSE-EXCEPTION.md).
