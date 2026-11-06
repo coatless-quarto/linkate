@@ -65,3 +65,7 @@ Output will automatically include at the end:
 - [somelink](www.il.gov)
 - [my link][short-ref]
 ```
+
+## License
+
+linkate is licensed under AGPL-3.0-or-later with an exception: what you write and render with linkate stays yours, along with the output, under any terms you like. See [LICENSE](LICENSE) and [LICENSE-EXCEPTION.md](LICENSE-EXCEPTION.md).
