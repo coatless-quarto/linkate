@@ -1,0 +1,15 @@
+---
+title: "linkate: 7 links on slides"
+filters:
+  - linkate
+---
+
+## Resources
+
+- [Site 1](https://site1.example.com)
+- [Site 2](https://site2.example.com)
+- [Site 3](https://site3.example.com)
+- [Site 4](https://site4.example.com)
+- [Site 5](https://site5.example.com)
+- [Site 6](https://site6.example.com)
+- [Site 7](https://site7.example.com)

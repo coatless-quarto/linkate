@@ -1,0 +1,7 @@
+---
+title: "linkate: no links"
+filters:
+  - linkate
+---
+
+Plain text only.

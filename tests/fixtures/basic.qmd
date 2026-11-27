@@ -1,0 +1,15 @@
+---
+title: "linkate: every kind of link"
+filters:
+  - linkate
+---
+
+An autolink <https://autolink.example.com>, an [inline link](https://inline.example.com)
+and a [reference link][ref].
+
+The [inline link](https://inline.example.com) again, and the same address
+with [other text](https://inline.example.com).
+
+The last paragraph.
+
+[ref]: https://reference.example.com
